@@ -1,8 +1,12 @@
 import { View, Text, Image, StyleSheet} from 'react-native'
+export const images = {
+  sliderImage1: require('../assets/sliderImage1.png'),
+  sliderImage2: require('../assets/sliderImage2.png'),
+  sliderImage3: require('../assets/sliderImage3.png'),
+  shoppingIcon: require('../assets/shoppingIcon.png'),
+};
 import React from 'react';
 import { images } from '../constants/image';
-import type { NavStack } from '../navigations/AuthNavigation';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ImageSlider from '../components/ImageSlider';
