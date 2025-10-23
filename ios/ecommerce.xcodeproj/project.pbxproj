@@ -7,10 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0212B801D62B479F943CE0F9 /* Figtree-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F8CBE253A274B6BACA7E173 /* Figtree-Italic.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-ecommerce.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ecommerce.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		2EB6A1DCA4024D19A0B06CEE /* AlanSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7984C08124DC434DA8D73170 /* AlanSans-Medium.ttf */; };
+		451858B5144641B6AA864BD7 /* AlanSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACAE281B51E54BD5AFB11C4B /* AlanSans-Light.ttf */; };
+		53870BFAB35A4E148387A597 /* AlanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 767A700C8CD345048F57EF73 /* AlanSans-Regular.ttf */; };
+		6255C188F2AE417BB6CA2B1E /* Frijole.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF8B2F570C3B481B98A8A188 /* Frijole.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8258322FD5E64BF9BDDD508B /* Figtree-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64560B17E0DD4D00ABABB76D /* Figtree-Medium.ttf */; };
+		86268AC5B6074D94AE496C7B /* AlanSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A545F2FC30E6414B839851CA /* AlanSans-Bold.ttf */; };
+		8A0E6987CCC5432AAF64A2F1 /* Figtree-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7B5935BD6A34CB69D729BCB /* Figtree-Light.ttf */; };
+		8A48EE4B8AA88620660AB315 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		8F68159530394D06AC8F3DB2 /* Figtree-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A09180B8EA4644E59522FFBB /* Figtree-BoldItalic.ttf */; };
+		90246AA3E445422D95205782 /* Figtree-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88D521E7F95F40CD9EBFEF82 /* Figtree-Regular.ttf */; };
+		A1D1EA5132364EC28618F34D /* Figtree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26FD3C7F504344EE80B920B3 /* Figtree-Bold.ttf */; };
+		BCE4CD9A6005460CA0C8EEE5 /* AlanSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9C225FCA3DD44B3B430D2A4 /* AlanSans-ExtraBold.ttf */; };
+		C258C0311A084A9EAB1C59C2 /* Figtree-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 413429CF59D046BAAB1B80F2 /* Figtree-Black.ttf */; };
+		C46648B6B5D14F389AC1BB91 /* Figtree-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBF0574BA04F4E71A958EB9F /* Figtree-MediumItalic.ttf */; };
+		C652B6C82DD944B3A848F55B /* Figtree-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAC450906A1142FE874E848F /* Figtree-LightItalic.ttf */; };
+		CB1EA9E6DFC2477AA62A077E /* Figtree-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D380F70F4D04C3B94848DB5 /* Figtree-ExtraBoldItalic.ttf */; };
+		CDC5B96B9C1347EBA03388B7 /* Figtree-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0C36F0E4EF64051BF519299 /* Figtree-BlackItalic.ttf */; };
+		DB029E0E1E2F49E78E4D1B51 /* Figtree-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AECB3EBB77AA4974938BD8E1 /* Figtree-ExtraBold.ttf */; };
+		DED4B1859BBB4C2683BA1625 /* AlanSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 431AB82F3CC44DB98C712CE9 /* AlanSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,12 +38,31 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ecommerce/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ecommerce/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ecommerce/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		26FD3C7F504344EE80B920B3 /* Figtree-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Bold.ttf"; path = "../src/assets/fonts/Figtree-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-ecommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce.debug.xcconfig"; path = "Target Support Files/Pods-ecommerce/Pods-ecommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		3F8CBE253A274B6BACA7E173 /* Figtree-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Italic.ttf"; path = "../src/assets/fonts/Figtree-Italic.ttf"; sourceTree = "<group>"; };
+		413429CF59D046BAAB1B80F2 /* Figtree-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Black.ttf"; path = "../src/assets/fonts/Figtree-Black.ttf"; sourceTree = "<group>"; };
+		431AB82F3CC44DB98C712CE9 /* AlanSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-SemiBold.ttf"; path = "../src/assets/fonts/AlanSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ecommerce.release.xcconfig"; path = "Target Support Files/Pods-ecommerce/Pods-ecommerce.release.xcconfig"; sourceTree = "<group>"; };
+		5D380F70F4D04C3B94848DB5 /* Figtree-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Figtree-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-ecommerce.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ecommerce.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64560B17E0DD4D00ABABB76D /* Figtree-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Medium.ttf"; path = "../src/assets/fonts/Figtree-Medium.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ecommerce/AppDelegate.swift; sourceTree = "<group>"; };
+		767A700C8CD345048F57EF73 /* AlanSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-Regular.ttf"; path = "../src/assets/fonts/AlanSans-Regular.ttf"; sourceTree = "<group>"; };
+		7984C08124DC434DA8D73170 /* AlanSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-Medium.ttf"; path = "../src/assets/fonts/AlanSans-Medium.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ecommerce/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88D521E7F95F40CD9EBFEF82 /* Figtree-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Regular.ttf"; path = "../src/assets/fonts/Figtree-Regular.ttf"; sourceTree = "<group>"; };
+		A09180B8EA4644E59522FFBB /* Figtree-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-BoldItalic.ttf"; path = "../src/assets/fonts/Figtree-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A0C36F0E4EF64051BF519299 /* Figtree-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-BlackItalic.ttf"; path = "../src/assets/fonts/Figtree-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A545F2FC30E6414B839851CA /* AlanSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-Bold.ttf"; path = "../src/assets/fonts/AlanSans-Bold.ttf"; sourceTree = "<group>"; };
+		AAC450906A1142FE874E848F /* Figtree-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-LightItalic.ttf"; path = "../src/assets/fonts/Figtree-LightItalic.ttf"; sourceTree = "<group>"; };
+		ACAE281B51E54BD5AFB11C4B /* AlanSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-Light.ttf"; path = "../src/assets/fonts/AlanSans-Light.ttf"; sourceTree = "<group>"; };
+		AECB3EBB77AA4974938BD8E1 /* Figtree-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-ExtraBold.ttf"; path = "../src/assets/fonts/Figtree-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BF8B2F570C3B481B98A8A188 /* Frijole.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Frijole.ttf; path = ../src/assets/fonts/Frijole.ttf; sourceTree = "<group>"; };
+		CBF0574BA04F4E71A958EB9F /* Figtree-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-MediumItalic.ttf"; path = "../src/assets/fonts/Figtree-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E9C225FCA3DD44B3B430D2A4 /* AlanSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AlanSans-ExtraBold.ttf"; path = "../src/assets/fonts/AlanSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F7B5935BD6A34CB69D729BCB /* Figtree-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Figtree-Light.ttf"; path = "../src/assets/fonts/Figtree-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +98,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7CDA573F826A4A6F99E72F2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				413429CF59D046BAAB1B80F2 /* Figtree-Black.ttf */,
+				A0C36F0E4EF64051BF519299 /* Figtree-BlackItalic.ttf */,
+				26FD3C7F504344EE80B920B3 /* Figtree-Bold.ttf */,
+				A09180B8EA4644E59522FFBB /* Figtree-BoldItalic.ttf */,
+				AECB3EBB77AA4974938BD8E1 /* Figtree-ExtraBold.ttf */,
+				5D380F70F4D04C3B94848DB5 /* Figtree-ExtraBoldItalic.ttf */,
+				3F8CBE253A274B6BACA7E173 /* Figtree-Italic.ttf */,
+				F7B5935BD6A34CB69D729BCB /* Figtree-Light.ttf */,
+				AAC450906A1142FE874E848F /* Figtree-LightItalic.ttf */,
+				64560B17E0DD4D00ABABB76D /* Figtree-Medium.ttf */,
+				CBF0574BA04F4E71A958EB9F /* Figtree-MediumItalic.ttf */,
+				88D521E7F95F40CD9EBFEF82 /* Figtree-Regular.ttf */,
+				ACAE281B51E54BD5AFB11C4B /* AlanSans-Light.ttf */,
+				767A700C8CD345048F57EF73 /* AlanSans-Regular.ttf */,
+				A545F2FC30E6414B839851CA /* AlanSans-Bold.ttf */,
+				7984C08124DC434DA8D73170 /* AlanSans-Medium.ttf */,
+				431AB82F3CC44DB98C712CE9 /* AlanSans-SemiBold.ttf */,
+				E9C225FCA3DD44B3B430D2A4 /* AlanSans-ExtraBold.ttf */,
+				BF8B2F570C3B481B98A8A188 /* Frijole.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +139,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				7CDA573F826A4A6F99E72F2A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -159,6 +225,26 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C258C0311A084A9EAB1C59C2 /* Figtree-Black.ttf in Resources */,
+				CDC5B96B9C1347EBA03388B7 /* Figtree-BlackItalic.ttf in Resources */,
+				A1D1EA5132364EC28618F34D /* Figtree-Bold.ttf in Resources */,
+				8F68159530394D06AC8F3DB2 /* Figtree-BoldItalic.ttf in Resources */,
+				DB029E0E1E2F49E78E4D1B51 /* Figtree-ExtraBold.ttf in Resources */,
+				CB1EA9E6DFC2477AA62A077E /* Figtree-ExtraBoldItalic.ttf in Resources */,
+				0212B801D62B479F943CE0F9 /* Figtree-Italic.ttf in Resources */,
+				8A0E6987CCC5432AAF64A2F1 /* Figtree-Light.ttf in Resources */,
+				C652B6C82DD944B3A848F55B /* Figtree-LightItalic.ttf in Resources */,
+				8258322FD5E64BF9BDDD508B /* Figtree-Medium.ttf in Resources */,
+				C46648B6B5D14F389AC1BB91 /* Figtree-MediumItalic.ttf in Resources */,
+				90246AA3E445422D95205782 /* Figtree-Regular.ttf in Resources */,
+				451858B5144641B6AA864BD7 /* AlanSans-Light.ttf in Resources */,
+				53870BFAB35A4E148387A597 /* AlanSans-Regular.ttf in Resources */,
+				86268AC5B6074D94AE496C7B /* AlanSans-Bold.ttf in Resources */,
+				2EB6A1DCA4024D19A0B06CEE /* AlanSans-Medium.ttf in Resources */,
+				DED4B1859BBB4C2683BA1625 /* AlanSans-SemiBold.ttf in Resources */,
+				BCE4CD9A6005460CA0C8EEE5 /* AlanSans-ExtraBold.ttf in Resources */,
+				6255C188F2AE417BB6CA2B1E /* Frijole.ttf in Resources */,
+				8A48EE4B8AA88620660AB315 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +460,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -439,7 +528,9 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
