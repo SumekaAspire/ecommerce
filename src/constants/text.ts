@@ -7,6 +7,9 @@ export const textData={
     welcome: 'Welcome to ',
     ourMart: 'OUR MART',
     letShop: ". let's Shop!",
+    next: "Next",
+    previous: "Prev",
+    getStarted:"Get Started",
 
 
     /*Login Screen */
