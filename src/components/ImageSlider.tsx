@@ -4,6 +4,12 @@ import Carousel from "react-native-reanimated-carousel";
 import { colors } from "../styles/colors";
 import Button from "./Button";
 import { textData } from "../constants/text";
+import LinkHandler from "./LinkHandler";
+import { useNavigation } from "@react-navigation/native";
+import { storeData } from "../utils/asyncStorage";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store/store";
+import { setUser } from "../store/slice/userSice";
 
 /**
  * type for ImageSlider
@@ -36,7 +42,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
    * 
    */
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const navigation: any = useNavigation();
+  const dispatch = useDispatch<AppDispatch>();
   const itemWidth = width - horizontalPadding * 2;
 
   //handle previous and Next buttons
@@ -52,20 +59,24 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
 
   }
 
-  const handleNavigationToLogin= () =>{
+  const handleNavigationToLogin= async() =>{
      if(activeIndex === data.length - 1){
-
+         await storeData('introCompleted', true);
+         dispatch(setUser(null));
+         navigation.replace('Login');
      }
   }
 
   return (
     <View style={styles.container}>
       <Carousel
+        key={activeIndex} //force carousel component re-render whenever the activeIndex change
+        defaultIndex={activeIndex} // sets the initial index of carousel when it is first rendered, not dynamically update the carousel position after initial render
         width={itemWidth}
         height={sliderBoxHeight}
         data={data || []}  //carousel component receives a valid array, if data prop is undefined, null, not provided
-        autoPlay={autoPlay}
-        autoPlayInterval={autoPlayInterval}
+        //autoPlay={autoPlay}
+        //autoPlayInterval={autoPlayInterval}
         onSnapToItem={(index) => setActiveIndex(index)}
         renderItem={({ item }) => (
           <Image
@@ -96,27 +107,25 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         <TouchableOpacity
          style={[styles.buttons, activeIndex === 0 && styles.disabledButton]}
          onPress={handlePrev}
-         disabled={activeIndex ===0}>
-          <Text style={styles.buttonText}>Prev</Text>
+         disabled={activeIndex ===0}> 
+        {/* logically disables button(preventing onPress event) and using styles ui also changed */}
+          <Text style={styles.buttonText}>{textData.previous}</Text>
         </TouchableOpacity>
 
-         <TouchableOpacity
-          style={[styles.buttons, activeIndex === data.length -1  && styles.disabledButton]}
-          onPress={handleNext}
-          disabled={activeIndex === data.length -1}>
-            <Text style={styles.buttonText}>Next</Text>
-         </TouchableOpacity>
-      </View>
-
-
-       {/* Button - reusable component, navigates to next screen*/}
-      <Button 
-        text={activeIndex !== data.length -1 ?textData.skip:  textData.continue} 
-        onPress={handleNavigationToLogin} 
-        containerStyle={{marginTop:10}}
-        buttonStyle={activeIndex !== data.length -1 ?styles.disabledButton:styles.button} 
-        disabled={activeIndex !== data.length - 1}/>
-       
+        {/* <LinkHandler
+         content={textData.previous}
+         textStyle={styles.buttonText}
+         viewStyle={[styles.buttons, activeIndex === 0 && styles.disabledButton]}
+         onPress={handlePrev}
+         disabled={activeIndex ===0} // logically disables button(preventing onPress event) and using styles ui also changed 
+        
+        /> */}
+         {activeIndex < data.length- 1 ?  
+          <LinkHandler content={textData.next}  onPress={handleNext} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+            : 
+          <LinkHandler content={textData.continue} onPress={handleNavigationToLogin} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+        }
+      </View>   
     </View>
   );
 };
@@ -130,7 +139,7 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: "cover",
-    // borderRadius: 10,
+   // borderRadius: 10,borderWidth:1,
   },
   dotsContainer: {
     flexDirection: "row",
@@ -155,30 +164,25 @@ const styles = StyleSheet.create({
   buttons: {
     padding: 10,
     backgroundColor: colors.orange,
-    borderRadius: 5,
-    width:"25%"
+    borderRadius: 20,
+    width:"32%",
+    height:42,
   },
   navigationContainer:{
     flexDirection:'row',
     justifyContent:'space-between',
-    width:'90%',
-    marginVertical:20,
+    width:'95%',
+    marginVertical:60,
   },
   buttonText:{
     textAlign:'center',
+    fontFamily:"AlanSans-Medium",
+    fontSize:16,
+    color:colors.white
 
   },
   disabledButton:{
     backgroundColor:colors.inActive,
-  },
-  button:{
-    width:330,
-    height:47,
-    backgroundColor:colors.ORANGE_COLOR,
-    borderRadius: 10,
-    justifyContent:'center',
-   
-  
   },
 });
 

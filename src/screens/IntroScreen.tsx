@@ -1,10 +1,4 @@
 import { View, Text, Image, StyleSheet} from 'react-native'
-export const images = {
-  sliderImage1: require('../assets/sliderImage1.png'),
-  sliderImage2: require('../assets/sliderImage2.png'),
-  sliderImage3: require('../assets/sliderImage3.png'),
-  shoppingIcon: require('../assets/shoppingIcon.png'),
-};
 import React from 'react';
 import { images } from '../constants/image';
 import { useNavigation } from '@react-navigation/native';
@@ -18,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
 import { setUser } from '../store/slice/userSice';
 import { storeData } from '../utils/asyncStorage';
+import LinkHandler from '../components/LinkHandler';
 
 
 
@@ -43,8 +38,8 @@ const IntroScreen = () => {
     const navigation: any = useNavigation();
     const dispatch = useDispatch<AppDispatch>();
     /**
-     * Handles navigation To LoginScreen 
-     * Triggers when user clicked continue button
+     * Skip - Handles navigation To LoginScreen 
+     * Triggers when user clicked skip text
      */
     const handleNavigationToLogin = async()=>{
          await storeData('introCompleted', true);
@@ -55,7 +50,8 @@ const IntroScreen = () => {
   return (
     <View style={styles.container}>
         <View style={styles.cartIcon}>
-           <MaterialCommunityIcons name="cart-variant" color="#b45945ff" size={90} />
+           <LinkHandler content="SKIP" onPress={handleNavigationToLogin} textStyle={styles.skip}/>
+           <MaterialCommunityIcons name="cart-variant" color={colors.iconSkip} size={90} />
            <Text style={styles.greetingText}>{textData.welcome} <Text style={styles.appName}>{textData.ourMart}</Text>{textData.letShop}</Text>
 
         </View>
@@ -68,15 +64,13 @@ const IntroScreen = () => {
 
              {/* Render ImageSlider component - reusable component*/}    
              <ImageSlider 
-             data={sliderData || []}
-             autoPlay={true}
-             autoPlayInterval={3000}
-             sliderBoxHeight={300}
-             horizontalPadding={40}   
-            
+               data={sliderData || []}
+              //  autoPlay={true}
+              //  autoPlayInterval={3000}
+               sliderBoxHeight={300}
+               horizontalPadding={30}   
              />
-            {/* Button - reusable component, navigates to next screen*/}
-            <Button text={textData.continue} onPress={handleNavigationToLogin} containerStyle={{ marginTop: 50 }}/>
+          
         </View>
     </View>
   )
@@ -110,7 +104,7 @@ const styles =StyleSheet.create({
         // justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
-        // borderWidth: 2,         // thickness
+        // borderWidth: 2,      
         // borderColor: colors.ORANGE_COLOR, // color (same as button, you can change)
         // borderRadius: 12,        
     },     
@@ -121,6 +115,13 @@ const styles =StyleSheet.create({
     },
     appName:{
         fontFamily:'Figtree-ExtraBold',
+    },
+    skip:{
+      left:150,
+      fontFamily:'AlanSans-Medium',
+      textAlign:'center',
+      color:colors.iconSkip,
+      fontSize:16,
+      fontWeight:'bold' 
     }
 })
-
