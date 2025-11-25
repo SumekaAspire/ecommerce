@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { storeData } from "../utils/asyncStorage";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store/store";
-import { setUser } from "../store/slice/userSice";
+import { setUser } from "../store/slices/userSlice";
 
 /**
  * type for ImageSlider
@@ -20,6 +20,7 @@ type ImageSliderProps = {
   autoPlayInterval?: number;
   sliderBoxHeight?: number;
   horizontalPadding?: number;
+  onSlideChange?: (index:number) =>void; // for slide change callback
 };
 
 const { width } = Dimensions.get("window");
@@ -33,12 +34,13 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   autoPlayInterval = 2000,
   sliderBoxHeight = 300,
   horizontalPadding = 20, 
+  onSlideChange,
 }) => {
 
   /**
-   * Used useState to manage  dots slide to move according to image slide(auto play)
-   * Carousel component updating the activeIndex whenever the slide autoplays to next slide.
-   * onSnapToItem - callback will be triggered whenever the carousel slide to new item and update the activeIndex with the new index.
+   * Used useState to manage  dots slide to move according to image slide(auto play)/ manually
+   * Carousel component updating the activeIndex whenever the slide autoplays/manully to next slide.
+   * onSnapToItem(for swipe changes- index updated) - callback will be triggered whenever the carousel slide to new item and update the activeIndex with the new index.
    * 
    */
   const [activeIndex, setActiveIndex] = useState(0);
@@ -46,15 +48,17 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const dispatch = useDispatch<AppDispatch>();
   const itemWidth = width - horizontalPadding * 2;
 
-  //handle previous and Next buttons
+  //handle previous and Next buttons, navigate to login as continue button
   const handlePrev=()=>{
       if(activeIndex >0){
         setActiveIndex(activeIndex -1);
+        onSlideChange?.(activeIndex - 1);
       }
   }
   const handleNext =() =>{
        if(activeIndex < data.length-1){
       setActiveIndex(activeIndex +1);
+      onSlideChange?.(activeIndex + 1); //condition - if onSlideChange(index changed means)
      }
 
   }
@@ -77,7 +81,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         data={data || []}  //carousel component receives a valid array, if data prop is undefined, null, not provided
         //autoPlay={autoPlay}
         //autoPlayInterval={autoPlayInterval}
-        onSnapToItem={(index) => setActiveIndex(index)}
+        // onSnapToItem={(index) => {
+        //   setActiveIndex(index);
+        // }} // if enabled means can swipe to every image slide(3 to 1 also happen), but prev, next buttons handled manually
+        enabled={false} // to disable swipe gesture in carousel, if true(can swipe, images only changed not dots, for dots have to enable onSnapItem)
+
         renderItem={({ item }) => (
           <Image
             // source={typeof item.img === "string" ? { uri: item.img } : item.img}
@@ -100,32 +108,30 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
           />
          
         ))}
+          
          
       </View>
 
-      <View style={styles.navigationContainer}>
-        <TouchableOpacity
-         style={[styles.buttons, activeIndex === 0 && styles.disabledButton]}
-         onPress={handlePrev}
-         disabled={activeIndex ===0}> 
-        {/* logically disables button(preventing onPress event) and using styles ui also changed */}
-          <Text style={styles.buttonText}>{textData.previous}</Text>
-        </TouchableOpacity>
-
-        {/* <LinkHandler
-         content={textData.previous}
-         textStyle={styles.buttonText}
-         viewStyle={[styles.buttons, activeIndex === 0 && styles.disabledButton]}
-         onPress={handlePrev}
-         disabled={activeIndex ===0} // logically disables button(preventing onPress event) and using styles ui also changed 
+        <View style={styles.navigationContainer}>
+        {/* first slide */}
+        {activeIndex === 0 &&(
+         <LinkHandler  content={textData.next}  onPress={handleNext} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+        )}
+        {/* middle slides */}
+        {activeIndex >0 && activeIndex < data.length-1 &&(
+          <>
+          <LinkHandler content={textData.previous}  onPress={handlePrev} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+            <LinkHandler  content={textData.next}  onPress={handleNext} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+          </>
+        )}
+        {/* last slide */}
+        {activeIndex === data.length-1 && (
+          <>
+          <LinkHandler content={textData.continue}  onPress={handleNavigationToLogin} textStyle={styles.buttonText} viewStyle={styles.buttons} />
+          </>
+        )}
         
-        /> */}
-         {activeIndex < data.length- 1 ?  
-          <LinkHandler content={textData.next}  onPress={handleNext} textStyle={styles.buttonText} viewStyle={styles.buttons} />
-            : 
-          <LinkHandler content={textData.continue} onPress={handleNavigationToLogin} textStyle={styles.buttonText} viewStyle={styles.buttons} />
-        }
-      </View>   
+       </View>  
     </View>
   );
 };
@@ -144,7 +150,7 @@ const styles = StyleSheet.create({
   dotsContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 30, 
+    marginTop: 40, 
   },
   dot: {
     marginHorizontal: 5,
@@ -165,8 +171,10 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: colors.orange,
     borderRadius: 20,
-    width:"32%",
+    width:120,
     height:42,
+    marginTop:50,
+    alignSelf:'flex-end'  // align the button to right
   },
   navigationContainer:{
     flexDirection:'row',
@@ -185,4 +193,6 @@ const styles = StyleSheet.create({
     backgroundColor:colors.inActive,
   },
 });
+
+
 
