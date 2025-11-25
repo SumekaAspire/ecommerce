@@ -17,6 +17,7 @@ export const validateEmail = (email: string): string => {
 
 /**
  * Validates a password.
+ * passwordMust have: 1 uppercase letter,1 lowercase letter, 1 number,1 special character,8–16 total characters,Only allowed characters (no spaces)
  * @param password - The password to validate.
  * @returns An error message if invalid, otherwise an empty string.
  */
@@ -117,4 +118,74 @@ export const validationRules = {
   },
 
   
+};
+
+
+
+//AddressDelivery component Validations:
+
+export const validateFirstName = (name: string): string => {
+  if (!name.trim()) return "Required.";
+  if (name.length < 3) return "At least 3 characters.";
+  if (!/^[A-Za-z\s]+$/.test(name)) return "Enter valid firstname.";
+  return "";
+};
+
+export const validateLastName = (name: string): string => {
+  if (!name.trim()) return "Required*.";
+  if (name.length < 0) return "At least 1 characters.";
+  if (!/^[A-Za-z\s]+$/.test(name)) return "Enter valid lastname.";
+  return "";
+};
+
+export const validateAddress = (value: string): string => {
+  if (!value.trim()) return "Required*.";
+  const allowedPattern = /^(?!\s)[A-Za-z0-9 ,.\-/:\n]+$/;
+  if (!allowedPattern.test(value)) {
+    return "Only letters, numbers, spaces, , . - / : are allowed.";
+  }
+  return "";
+};
+
+export const validateCity = (city: string): string => {
+  if (!city.trim()) return "Required*.";
+  if (!/^[A-Za-z\s]+$/.test(city)) return "Enter a valid city.";
+  return "";
+};
+export const validateCountry = (country: string): string => {
+  if (!country.trim()) return "Required*.";
+  if (country.length < 2) return "At least 3 characters.";
+  if (!/^[A-Za-z\s]+$/.test(country)) return "Enter valid Country.";
+  return "";
+};
+
+export const validateState = (state: string): string => {
+  if (!state.trim()) return "Required*.";
+  if (!/^[A-Za-z\s]+$/.test(state)) return "Enter a valid state.";
+  return "";
+};
+
+export const validatePincode = (pincode: string): string => {
+  if (!pincode.trim()) return "Required*.";
+  if (!/^6\d{5}$/.test(pincode)) return "Enter 6-digit, starts with 6.";
+  return "";
+};
+
+export const validatePhone = (phone: string): string => {
+  if (!phone.trim()) return "Required*.";
+  if (!/^[6-9]\d{9}$/.test(phone)) return "Enter 10-digit number.";
+  return "";
+};
+
+
+//ProfileScreen
+
+export const validateAddressProfileScreen = (value: string): string => {
+  if (!value.trim()) return "Address is required.";
+  if (/^\s/.test(value)) return "Address cannot start with a space.";
+  const allowedPattern = /^[A-Za-z0-9 .,\-`':/]+$/;
+  if (!allowedPattern.test(value)) {
+    return "Invalid characters entered.";
+  }
+  return "";
 };

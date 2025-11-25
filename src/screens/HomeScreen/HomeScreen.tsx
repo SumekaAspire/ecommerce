@@ -5,6 +5,9 @@ import SearchBar from '../../components/SearchBar';
 import HomeBanner from './HomeBanners';
 import ProductList from './ProductList';
 import { fetchproducts } from '../../services/api';
+import Search from '../../components/Search';
+import Filters from '../../components/Filters';
+import RadioButton from '../../components/RadioButton';
 
 /**
  * HomeScreen Component
@@ -13,23 +16,26 @@ import { fetchproducts } from '../../services/api';
 
 
 const HomeScreen: React.FC = () => {
-      const [searchProducts, setSearchProducts] = useState('')
+      // const [searchProducts, setSearchProducts] = useState('')
 
   return (
     <View style={styles.container}>
       
-     <SearchBar
+     {/* <SearchBar
        onChangeText={(text) =>setSearchProducts(text)}
        label='Search...'
-      
-     />
+     /> */}
+         <Filters/>
+     <Search label="Search..."/>
      <ScrollView
          showsVerticalScrollIndicator={true}
          contentContainerStyle={styles.scrollContent}
          nestedScrollEnabled={true}
      >
         <HomeBanner/>
-        <ProductList searchProducts={searchProducts}/> 
+        {/* <ProductList searchProducts={searchProducts}/>  */}
+      <ProductList/> 
+
      </ScrollView>
     </View>
   )

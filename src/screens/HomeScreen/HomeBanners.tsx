@@ -3,6 +3,7 @@ import React from 'react'
 import { banner,banners, categories } from '../../mockdata/mockData';
 import Carousel from 'react-native-reanimated-carousel'
 import ProductList from './ProductList';
+import { colors } from '../../styles/colors';
 
 /**
  * ProductCategory component -displays the product category list in horizontal 
@@ -30,7 +31,7 @@ const ProductCategory:React.FC = () => {
 }
 
 
-//get screen with to ynamically calculate the carousel item width
+//get screen with to dynamically calculate the carousel item width
 const {width: screenWidth} = Dimensions.get('window');
 
 //renders the data
@@ -92,7 +93,7 @@ const BannerScroll:React.FC= () => {
 const HomeBanners: React.FC = () => {
     return(
         <View style={styles.homeScreenContainer}>
-            <ProductCategory />
+             <ProductCategory />
              <CarouselBanner/>
              <BannerScroll/>
            
@@ -124,7 +125,7 @@ const styles= StyleSheet.create({
     itemText:{
         fontSize:13,
         textAlign:"center",
-        color:"#888",
+        color:colors.grey,
         fontWeight:"bold"
 
     },
@@ -132,7 +133,7 @@ const styles= StyleSheet.create({
         width:270,
         height:150,
         borderRadius:15,
-        borderColor:"#888",
+        borderColor:colors.grey,
         borderWidth:2,
         backgroundColor: "#d2b4b4ff",
         marginRight:5
@@ -146,7 +147,7 @@ const styles= StyleSheet.create({
         width:363,
         height:170,
         borderRadius:15,
-        borderColor:"#888",
+        borderColor:colors.grey,
         borderWidth:2,
         backgroundColor: "#d2b4b4ff",
 

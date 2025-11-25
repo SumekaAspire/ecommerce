@@ -3,12 +3,27 @@ export const userInfo=[
     id:1,
     name:"Sumeka",
     email:"sumeka@gmail.com",
-    password:"Password$123"
+    password:"Password$123",
+    firstName:"Sumeka",
+    lastName:"A",
+    address:"12th cross street, Rmkv nagar,\n Adayar, chennai",
+    phone:"9025638101",
   },
   
-]
+];
 
+export const paymentOptions = [
+  { id: '1',name: 'UPI (Google Pay, PhonePe)' , icon: 'card-outline' },
+  { id: '2', name: 'Cash on Delivery', icon: 'wallet-outline' },
+];
 
+export const profileInfo= [
+  {id: '1', category:"Account",iconName:'bookmark', routeName:"AccountInfo",},
+  {id: '2', category:"Wishlist",iconName:'heart', routeName:"Wishlist",},
+  {id: '3', category:"Your Orders",iconName:'layers-sharp', routeName:"Cart",},
+  {id: '4', category:"Address",iconName:'home', routeName:"ProductList",},
+  {id: '5', category:"Change Password",iconName:'document-lock-sharp', routeName:"ProductList",},
+];
 
 export const categories = [
   { id: 1, name: "Makeup", image: "https://cdn-icons-png.flaticon.com/512/3534/3534523.png" },

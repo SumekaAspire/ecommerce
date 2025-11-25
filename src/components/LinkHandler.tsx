@@ -1,4 +1,4 @@
-import { View, Text , TouchableOpacity, TextStyle} from 'react-native'
+import { View, Text , TouchableOpacity, TextStyle, ViewStyle} from 'react-native'
 import React from 'react'
 import Fontisto from "react-native-vector-icons/Fontisto";
 
@@ -10,6 +10,9 @@ type LinkHandlerProps={
     iconName?: string;
     iconColor?: string;
     iconSize?: number;
+    viewStyle?: ViewStyle;
+    disabled?: boolean;
+    iconComponent?:React.ReactNode;  //allows JSX(like <Ioicons/>) - it covers JSX elements, strings, numbers, arrays, and null.
 
 }
 
@@ -17,16 +20,16 @@ type LinkHandlerProps={
  * LinkHnadler Component -  contains CustomTouchableopacity for navigation to other screen/authentication conatins text or with auth icons
  * @returns LinkHandler component - touchbleopacity view
  */
-const LinkHandler: React.FC<LinkHandlerProps> = ({onPress, content,  textStyle,iconColor = "#888",iconName, iconSize=20}) => {
+const LinkHandler: React.FC<LinkHandlerProps> = ({onPress, content,  textStyle,iconColor = "#888",iconName, iconSize=20, viewStyle, disabled, iconComponent}) => {
   return (
-    <View>
-      <TouchableOpacity onPress={onPress}>
-           {iconName && (
-            <Fontisto name={iconName} color={iconColor} size={iconSize}/>
-           )}
-           {content && <Text style={[textStyle]}>{content}</Text>}
+   
+      <TouchableOpacity onPress={onPress} style={[viewStyle]} disabled={disabled}>
+         {content && <Text style={[textStyle]}>{content}</Text>}
+         {iconComponent ? (
+           iconComponent) : (  iconName && <Fontisto name={iconName} color={iconColor} size={iconSize} />)}
+          
       </TouchableOpacity>
-    </View>
+   
   )
 }
 

@@ -2,13 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../utils/asyncStorage";
 import { RootState } from "../store";
 
-// defines user onject
+// defines user object
 interface UserSlice{
     user: User| null;
 }
 
 //initialstate for user slice
-const initialState: UserSlice = {user: null}; // default state is null- no user logged in
+const initialState: UserSlice = {
+    user: null}; // default state is null- no user logged in
 
 const userSlice = createSlice({
     name:'user',
@@ -28,14 +29,27 @@ const userSlice = createSlice({
          */
         clearUser:(state) =>{
            state.user = null; //reset the user state to null
-        }
+        },
+        /**
+         * action to update the repective field
+         * @param state   keep the existing field
+         * @param action  update the provided field
+         */
+        updateUser: (state, action) => {
+          if (state.user) {
+            state.user = {
+                ...state.user, //keep existing fields
+                ...action.payload, // update only the provided fields
+        };
+      }
+    },
     }
 
 })
 
 
 // export the actions to be used in components
-export const {setUser, clearUser} = userSlice.actions;
+export const {setUser, clearUser, updateUser} = userSlice.actions;
 
 
 //custom selector to get user state

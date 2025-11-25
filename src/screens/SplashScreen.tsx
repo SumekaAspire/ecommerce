@@ -7,7 +7,7 @@ import { colors } from '../styles/colors';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
 import { getData } from '../utils/asyncStorage';
-import { setUser } from '../store/slice/userSice';
+import { setUser } from '../store/slices/userSlice';
 
 
 

@@ -1,11 +1,5 @@
 import { View, Text, Image, StyleSheet} from 'react-native'
-export const images = {
-  sliderImage1: require('../assets/sliderImage1.png'),
-  sliderImage2: require('../assets/sliderImage2.png'),
-  sliderImage3: require('../assets/sliderImage3.png'),
-  shoppingIcon: require('../assets/shoppingIcon.png'),
-};
-import React from 'react';
+import React, { useState } from 'react';
 import { images } from '../constants/image';
 import { useNavigation } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -16,10 +10,9 @@ import { globalStyles } from '../styles/globalStyles';
 import Button from '../components/Button';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
-import { setUser } from '../store/slice/userSice';
+import { setUser } from '../store/slices/userSlice';
 import { storeData } from '../utils/asyncStorage';
-
-
+import LinkHandler from '../components/LinkHandler';
 
 //Images for SiderView
 const sliderData = [
@@ -33,6 +26,7 @@ const sliderData = [
     img: images.sliderImage3,
   },
 ];
+
 /**
  * Introscreen component for the application.
  * It displays cart image, greeting message, image slider and button navigates to Login screen after clicked the continue button.
@@ -42,9 +36,11 @@ const IntroScreen = () => {
    //Access the navigation object using the useNavaigation hook
     const navigation: any = useNavigation();
     const dispatch = useDispatch<AppDispatch>();
+    const [activeIndex, setActiveIndex] = useState(0); //to track active slide index 
+
     /**
-     * Handles navigation To LoginScreen 
-     * Triggers when user clicked continue button
+     * Skip - Handles navigation To LoginScreen 
+     * Triggers when user clicked skip text
      */
     const handleNavigationToLogin = async()=>{
          await storeData('introCompleted', true);
@@ -53,30 +49,28 @@ const IntroScreen = () => {
     }
     
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
         <View style={styles.cartIcon}>
-           <MaterialCommunityIcons name="cart-variant" color="#b45945ff" size={90} />
+        {/* conditionally render skip button */}
+        { activeIndex < sliderData.length-1 &&(
+           <LinkHandler content="SKIP" onPress={handleNavigationToLogin} textStyle={styles.skip}/>
+          )}
+           <MaterialCommunityIcons name="cart-variant" color={colors.iconSkip} size={90} />
            <Text style={styles.greetingText}>{textData.welcome} <Text style={styles.appName}>{textData.ourMart}</Text>{textData.letShop}</Text>
 
         </View>
 
         <View style={styles.afterCartSection}>
-            {/* <Image
-              source={images.shoppingIcon}
-              style={styles.image}
-            /> */}
-
              {/* Render ImageSlider component - reusable component*/}    
              <ImageSlider 
-             data={sliderData || []}
-             autoPlay={true}
-             autoPlayInterval={3000}
-             sliderBoxHeight={300}
-             horizontalPadding={40}   
-            
+               data={sliderData || []}
+              //  autoPlay={true}
+              //  autoPlayInterval={3000}
+               sliderBoxHeight={300}
+               horizontalPadding={30}   
+               onSlideChange={(index) =>  setActiveIndex(index)} //update activeIndex on slide change
              />
-            {/* Button - reusable component, navigates to next screen*/}
-            <Button text={textData.continue} onPress={handleNavigationToLogin} containerStyle={{ marginTop: 50 }}/>
+          
         </View>
     </View>
   )
@@ -85,12 +79,6 @@ const IntroScreen = () => {
 export default IntroScreen;
 
 const styles =StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor: colors.PRIMARY_BACKGROUNDCOLOR,
-        padding:20,
-
-    },
     cartIcon:{
         alignItems: 'center',
         marginTop: 20,
@@ -110,7 +98,7 @@ const styles =StyleSheet.create({
         // justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
-        // borderWidth: 2,         // thickness
+        // borderWidth: 2,      
         // borderColor: colors.ORANGE_COLOR, // color (same as button, you can change)
         // borderRadius: 12,        
     },     
@@ -121,6 +109,17 @@ const styles =StyleSheet.create({
     },
     appName:{
         fontFamily:'Figtree-ExtraBold',
+    },
+    skip:{
+      left:150,
+      fontFamily:'AlanSans-Medium',
+      textAlign:'center',
+      color:colors.iconSkip,
+      fontSize:16,
+      fontWeight:'bold' 
     }
 })
+
+
+
 
