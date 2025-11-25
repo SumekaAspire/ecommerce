@@ -10,7 +10,7 @@ type LinkHandlerProps={
     iconName?: string;
     iconColor?: string;
     iconSize?: number;
-    viewStyle?: ViewStyle| ViewStyle[];
+    viewStyle?: ViewStyle;
     disabled?: boolean;
     iconComponent?:React.ReactNode;  //allows JSX(like <Ioicons/>) - it covers JSX elements, strings, numbers, arrays, and null.
 

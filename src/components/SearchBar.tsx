@@ -2,6 +2,7 @@
 import { View, Text, StyleSheet, TextInput, ActivityIndicator} from 'react-native'
 import React, { useState , useMemo, useEffect} from 'react'
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { colors } from '../styles/colors';
 
 //interface for SerachBar
 interface SearchBarProps{
@@ -11,13 +12,13 @@ interface SearchBarProps{
   
 }
 /**
- * Displays SerchBar 
+ * Displays SearchBar 
  * @param param0 onChange Text updates the text on the searchBar
  * @returns SearchBar componnet
  */
 const SearchBar:React.FC<SearchBarProps> = ({onChangeText, label}) => {
 
-   const [search, setSearch] = useState(" ");
+   const [search, setSearch] = useState("");
    const handleChange =(text:string)=>{
     setSearch(text);
     onChangeText(text);
@@ -25,7 +26,7 @@ const SearchBar:React.FC<SearchBarProps> = ({onChangeText, label}) => {
   return (
     <View style={styles.container}>
       <View style= {styles.searchBar}>
-      <Icon name="search" size={20} color="#888"/>
+      <Icon name="search" size={20} color={colors.black}/>
 
       <TextInput
          style={styles.input}
@@ -44,10 +45,11 @@ export default SearchBar
 
 const styles = StyleSheet.create({
   container:{
-        backgroundColor:"white",
+        backgroundColor:"#dbd6d6ff",
         margin:10,
-        borderWidth: 1,
-        borderColor:"#888"
+        borderWidth: 2,
+        borderColor:colors.grey,
+        borderRadius:5
   },
   input: {
     height: 35,
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     // margin: 12,
     // borderWidth: 1,
     // padding: 10,
-    // borderColor:"#888"
+    // borderColor:colors.grey,
   },
   searchBar:{
     flexDirection:"row",
