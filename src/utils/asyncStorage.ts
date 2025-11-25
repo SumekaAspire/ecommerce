@@ -6,6 +6,15 @@ export interface User{
     name:string;
     email:string;
     password: string;
+    firstName: string;
+    lastName: string;
+    country: string;
+    pincode: string;
+    city: string;
+    state: string;
+    address: string;
+    houseFlat: string;
+    phone: string;
 }
 
 /**

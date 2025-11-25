@@ -19,7 +19,6 @@ export const globalStyles= StyleSheet.create({
           // marginTop:90
 
       },
-
     /*SignUp and Login Screen */
     continueBtnText:{
       textAlign:'center',
@@ -32,7 +31,7 @@ export const globalStyles= StyleSheet.create({
     
     container: {
     flex: 1,
-    padding: 20,
+    padding: 10,
     backgroundColor: colors.PRIMARY_BACKGROUNDCOLOR,
   },
 
@@ -101,10 +100,76 @@ export const globalStyles= StyleSheet.create({
     color: colors.formColor,
   },
   globalError:{
-     color: "red",
+    color: "red",
     fontSize: 12,
     textAlign: "center",
     right: 12,
-  }
+  },
+  buttonText: {
+    color: colors.white,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
 
+})
+
+
+//for productlist, whishlist componet
+export const productCardView = StyleSheet.create({
+  productCard: {
+    flex:1,
+    justifyContent:"flex-start",
+    alignItems:"center",
+    backgroundColor: "#f6f3f3ff",
+    borderRadius: 5,
+    marginHorizontal: 5,
+    padding: 5,
+    marginTop:5,
+    minHeight: 320, //ensures each card has the same height
+   
+  },
+  image: {
+    width: 160,
+    height: 150,
+    // borderRadius: 10,
+    // borderColor:colors.grey,
+    // borderWidth:2,
+    alignItems:"center",
+    margin:5,
+    marginTop:10,
+    
+  },
+  productName: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 5,
+    textAlign:"center"
+  },
+  productPrice:{
+    color: colors.ORANGE_COLOR,
+    fontSize: 15,
+    marginTop: 3,
+    textAlign:"center"
+  },
+  itemSeparator:{
+    height:5,
+    backgroundColor:'transparent',
+    //backgroundColor:'#888',
+  },
+   wishlistIcon:{
+    top: 5,
+    left:70,
+   
+ },
+   cartButton:{
+    backgroundColor: colors.ORANGE_COLOR,
+    paddingVertical: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  cartBtnText:{
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 })
