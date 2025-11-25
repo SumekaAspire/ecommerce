@@ -13,7 +13,7 @@ import { validateEmail,validatePassword} from "../../constants/Validations";
 import UserTextInput from "../../components/UserTextInput";
 import { useDispatch } from "react-redux";
 import { storeData } from "../../utils/asyncStorage";
-import { setUser } from "../../store/slice/userSice";
+import { setUser } from "../../store/slices/userSlice";
 import { userInfo } from "../../mockdata/mockData";
 import { AppDispatch } from "../../store/store";
 
@@ -117,7 +117,7 @@ const Login = () => {
         </View>
 
         {/* Login Button - reusable component, navigates to next screen*/}
-        <Button text={textData.loginText} onPress={handleLogin} containerStyle={{marginTop:20, marginLeft:12, marginBottom:10}}/>
+        <Button text={textData.loginText} onPress={handleLogin} containerStyle={{marginTop:20, marginLeft:20, marginBottom:10}}/>
        
          {/* Move to signUp screen through register text  - reusable component*/}
         <LinkHandler onPress={handleNaivigateToSignUp} content={textData.register} textStyle={styles.textLogin}/>

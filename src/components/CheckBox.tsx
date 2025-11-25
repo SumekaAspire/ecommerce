@@ -12,8 +12,6 @@ type CheckboxContentProps ={
     tintColors?: {true: string, false: string}
     textContent: string
     textStyle?: TextStyle;
-
-
 }
 /**
  * 
